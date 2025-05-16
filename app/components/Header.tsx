@@ -1,8 +1,8 @@
-import { Link, useLocation } from "react-router";
+import { NavLink } from "react-router-dom"; // <--- هنا التصحيح: استورد NavLink
 
 export default function Header() {
-  const location = useLocation();
-  
+  // لم نعد بحاجة لـ useLocation هنا
+
   return (
     <header className="bg-sky-100 shadow-sm">
       <nav className="container mx-auto px-4 py-4">
@@ -12,27 +12,45 @@ export default function Header() {
             <div className="text-sm md:ml-2 text-sky-800">CraftedByHand</div>
           </div>
           <div className="flex space-x-4 sm:space-x-6">
-            <Link 
-              to="/" 
-              className={`${location.pathname === "/" ? "text-sky-600 font-medium" : "text-sky-800 hover:text-sky-600 transition-colors"} px-2 py-1`}
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-sky-600 font-medium"
+                    : "text-sky-800 hover:text-sky-600 transition-colors"
+                } px-2 py-1`
+              }
             >
               Home
-            </Link>
-            <Link 
-              to="/about" 
-              className={`${location.pathname === "/about" ? "text-sky-600 font-medium" : "text-sky-800 hover:text-sky-600 transition-colors"} px-2 py-1`}
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-sky-600 font-medium"
+                    : "text-sky-800 hover:text-sky-600 transition-colors"
+                } px-2 py-1`
+              }
             >
               About
-            </Link>
-            <Link 
-              to="/services" 
-              className={`${location.pathname === "/services" ? "text-sky-600 font-medium" : "text-sky-800 hover:text-sky-600 transition-colors"} px-2 py-1`}
+            </NavLink>
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-sky-600 font-medium"
+                    : "text-sky-800 hover:text-sky-600 transition-colors"
+                } px-2 py-1`
+              }
             >
               Services
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
     </header>
   );
-} 
+}

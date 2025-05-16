@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /some-private-page/ # مثال لصفحة لا تريد فهرستها
+
+Sitemap: https://www.yourdomain.com/sitemap.xml # استبدل بنطاقك
